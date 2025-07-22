@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Képgaléria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    <!-- Cookie figyelmeztetés -->
+    <script src="/js/cookie.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Képgaléria</h1>
+    <nav>
+        <a href="index.html">Főoldal</a>
+        <a href="emlekezes.html">Emlékezete</a>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Rendezvények, versenyek, közösségi pillanatok</h2>
+
+        <div class="gallery">
+            <img src="images/galeria1.jpg" alt="Kép 1">
+            <img src="images/galeria2.jpg" alt="Kép 2">
+            <img src="images/galeria3.jpg" alt="Kép 3">
+            <!-- További képek -->
+        </div>
+    </section>
+</main>
+
+<footer>
+     <p>&copy; 2025 Dr. Pap Zsolt Alapítvány |
+        <a href="impresszum.html" style="color: inherit;">Impresszum</a>
+    </p>
+</footer>
+<!-- GOMB a BODY legvégére -->
+<button id="backToTop" style="display:none; position:fixed; bottom:20px; right:20px;">↑</button>
+<!-- JAVASCRIPT a legvégére -->
+<script src="js/main.js"></script>
+</body>
+</html>

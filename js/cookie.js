@@ -4,8 +4,8 @@ window.addEventListener('DOMContentLoaded', function () {
         const isEnglish = lang.startsWith('en');
 
         const message = isEnglish
-            ? `This website uses cookies to improve user experience. <a href="/privacy" style="color: #0d6efd;">Learn more</a>`
-            : `Ez a weboldal sütiket használ a jobb felhasználói élmény érdekében. <a href="/adatvedelem" style="color: #0d6efd;">További információ</a>`;
+            ? `This website uses cookies to improve user experience. <a href="/drpapzsolt/privacy" style="color: #0d6efd;">Learn more</a>`
+            : `Ez a weboldal sütiket használ a jobb felhasználói élmény érdekében. <a href="/drpapzsolt/adatvedelem" style="color: #0d6efd;">További információ</a>`;
 
         const buttonText = isEnglish ? "Got it" : "Értettem";
 
