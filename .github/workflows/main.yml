@@ -19,8 +19,9 @@ jobs:
           server: 185.51.188.49
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: drpapzsoltalapitvany.hu/
-          protocol: ftp
+          server-dir: /public_html/drpapzsoltalapitvany.hu/
+          local-dir: ./
+          protocol: ftps
           port: 21
           passive: true
           secure: false
