@@ -20,6 +20,48 @@
         .gallery img:hover {
             transform: scale(1.05);
         }
+        .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.92);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 60px;
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
     </style>
     <!-- Cookie figyelmeztetés -->
     <script src="/js/cookie.js"></script>
@@ -98,6 +140,60 @@
 <!-- GOMB a BODY legvégére -->
 <button id="backToTop" style="display:none; position:fixed; bottom:20px; right:20px;">↑</button>
 <!-- JAVASCRIPT a legvégére -->
-<script src="js/main.js"></script>
+
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <span class="next">&#10095;</span>
+</div>
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+const images = document.querySelectorAll(".gallery img");
+let currentIndex = 0;
+
+function showImage(index) {
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.style.display = "flex";
+}
+
+images.forEach((img, index) => {
+    img.addEventListener("click", () => showImage(index));
+});
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+}
+
+nextBtn.onclick = nextImage;
+prevBtn.onclick = prevImage;
+
+closeBtn.onclick = () => lightbox.style.display = "none";
+
+lightbox.onclick = (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+};
+
+document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowRight") nextImage();
+        if (e.key === "ArrowLeft") prevImage();
+        if (e.key === "Escape") lightbox.style.display = "none";
+    }
+});
+
+</script>
 </body>
 </html>
