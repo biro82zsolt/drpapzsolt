@@ -197,3 +197,21 @@ footer {
 .prev:hover, .next:hover, .close:hover {
     color: #ccc;
 }
+.btn {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 6px 14px;
+    background-color: #004466;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #004466;
+}
+
+.btn:hover {
+    background-color: #006080;
+    border-color: #006080;
+}
