@@ -32,6 +32,10 @@ footer {
     padding: 1em;
 }
 
+.footer-link {
+    color: inherit;
+}
+
 /* Alap navigáció */
 .navbar {
     display: flex;
@@ -71,6 +75,115 @@ footer {
     font-weight: 500;
 }
 
+/* Galéria */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 0 25px black;
+}
+
+.close {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 60px;
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover,
+.next:hover,
+.close:hover {
+    color: #ccc;
+}
+
+.btn {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 6px 14px;
+    background-color: #004466;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #004466;
+}
+
+.btn:hover {
+    background-color: #006080;
+    border-color: #006080;
+}
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #004466;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000;
+}
 
 /* Mobilnézet */
 @media (max-width: 768px) {
@@ -97,121 +210,4 @@ footer {
     .nav-links.active {
         display: flex;
     }
-.gallery img {
-    width: 100%;
-    max-width: 250px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border-radius: 8px;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* Lightbox háttér */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-}
-
-/* Nagy kép */
-.lightbox-content {
-    margin: auto;
-    display: block;
-    max-width: 85%;
-    max-height: 80vh;
-    border-radius: 10px;
-}
-
-/* Bezáró X */
-.close {
-    position: absolute;
-    top: 30px;
-    right: 50px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #ccc;
-}
-
-}
-
-/* LIGHTBOX */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.92);
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-content {
-    max-width: 85%;
-    max-height: 85vh;
-    border-radius: 10px;
-    box-shadow: 0 0 25px black;
-}
-
-/* Bezárás */
-.close {
-    position: absolute;
-    top: 25px;
-    right: 40px;
-    color: white;
-    font-size: 45px;
-    cursor: pointer;
-}
-
-/* Nyilak */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 60px;
-    cursor: pointer;
-    padding: 20px;
-    user-select: none;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-.prev:hover, .next:hover, .close:hover {
-    color: #ccc;
-}
-.btn {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 6px 14px;
-    background-color: #004466;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid #004466;
-}
-
-.btn:hover {
-    background-color: #006080;
-    border-color: #006080;
 }
