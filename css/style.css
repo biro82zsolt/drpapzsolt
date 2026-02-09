@@ -110,11 +110,18 @@ footer {
 }
 
 .lightbox-content {
-    max-width: 75vw;
-    max-height: 75vh;
+    display: block;
+    max-width: 85vw;
+    max-height: 85vh;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 0 25px black;
+    padding: 40px;
 }
+
+
 
 .close {
     position: absolute;
