@@ -23,5 +23,4 @@ jobs:
           server-dir: ./
           protocol: ftps
           port: 21
-          passive: true
-          secure: false
+          security: loose
